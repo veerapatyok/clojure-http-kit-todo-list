@@ -1,41 +1,86 @@
 (ns todo-rest-api.service
   (:gen-class)
-  (:use [todo-rest-api.h2]))
+  (:use [todo-rest-api.database.h2])
+  (:require [clojure.spec.alpha :as s]
+            [clj-time [format :as f]]))
 
 (defn uuid [] (str (java.util.UUID/randomUUID)))
 
-(defn timestamp [] (. (java.time.Instant/now) toEpochMilli))
+(def all-status
+  ["success", "failure"])
+
+(defn status?
+  [status]
+  (s/valid? (fn [x] (some #(= % x) all-status)) status))
+
+(defn date-format?
+  [date]
+  (let [date? #(try (f/parse (f/formatter "YYYY-MM-dd") %) true (catch Exception e false))]
+    (s/valid? date? date)))
+
+(defn validate-data
+  [valid? error]
+  (if valid? true error))
 
 (defn get-tasks-by-id
   [id]
-  (-> (query-by-h2-setting (str "select * from task where id=" "'" id "'"))
-      (first)))
+  (if (empty? (query-by-h2-setting (str "select * from task where id=" "'" id "'")))
+    {:errors ["not found"]}
+
+    {:data (-> (query-by-h2-setting (str "select * from task where id=" "'" id "'"))
+               (first))}))
 
 (defn insert-task-by-req
   [req]
   (let [id (uuid)
-        date (timestamp)
+        date (get-in req [:body :date])
         task-name (get-in req [:body :name])
-        status (get-in req [:body :status])]
-    (execute-by-h2-setting (str "insert into task(id, name, status, date) values(" "'" id "'" "," "'" task-name "'" "," "'" status "'" "," date ")"))
-    {:id     id
-     :name   task-name
-     :status status
-     :date   date}))
+        status (get-in req [:body :status])
+        errors (reduce
+                 #(if (true? %2) %1 (cons %2 %1))
+                 []
+                 [(validate-data (s/valid? date-format? date) "invalid date")
+                  (validate-data (s/valid? (complement nil?) task-name) "invalid task-name")
+                  (validate-data (s/valid? status? status) "invalid status")])]
+
+    (cond
+      (empty? errors) (second [(execute-by-h2-setting
+                                 (str "insert into task(id, name, status, task_date) values(" "'" id "'" "," "'" task-name "'" "," "'" status "'" "," "'" date "'" ")"))
+                               {:data {:id        id
+                                       :name      task-name
+                                       :status    status
+                                       :task_date date}}])
+      :else {:errors errors})))
 
 (defn delete-task-by-id
   [id]
-  (execute-by-h2-setting (str "delete from task where id=" "'" id "'"))
-  {:id id})
+  (if (> (first (execute-by-h2-setting (str "delete from task where id=" "'" id "'"))) 0)
+    (second [(execute-by-h2-setting (str "delete from task where id=" "'" id "'"))
+             {:data {:id id}}])
+
+    {:errors ["not found"]}))
 
 (defn update-task-by-id
   [req]
   (let [id (get-in req [:params :id])
-        date (timestamp)
+        date (get-in req [:body :date])
         task-name (get-in req [:body :name])
-        status (get-in req [:body :status])]
-    (execute-by-h2-setting (str "update task set name=" "'" task-name "'" "," "status='" status "'" "where id=" "'" id "'"))
-    {:id     id
-     :name   task-name
-     :status status
-     :date   date}))
+        status (get-in req [:body :status])
+        errors (reduce
+                 #(if (true? %2) %1 (cons %2 %1))
+                 []
+                 [(validate-data (s/valid? date-format? date) "invalid date")
+                  (validate-data (s/valid? (complement nil?) task-name) "invalid task-name")
+                  (validate-data (s/valid? status? status) "invalid status")])]
+
+    (cond
+      (empty? errors) (if (> (first (execute-by-h2-setting
+                                      (str "update task set name=" "'" task-name "'" "," "status=" "'" status "'" "," "task_date=" "'" date "'" "where id=" "'" id "'"))) 0)
+                        {:data {:id        id
+                                :name      task-name
+                                :status    status
+                                :task_date date}}
+
+                        {:errors ["not found"]})
+
+      :else {:errors errors})))

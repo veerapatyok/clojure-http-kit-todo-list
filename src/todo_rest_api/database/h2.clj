@@ -1,4 +1,4 @@
-(ns todo-rest-api.h2
+(ns todo-rest-api.database.h2
   (:gen-class)
   (:use [clojure.java.jdbc :as j]))
 
@@ -18,7 +18,7 @@
                                         [[:id "varchar(100)"]
                                          [:name "varchar(100)"]
                                          [:status "varchar(100)"]
-                                         [:date "int(15)"]])))
+                                         [:task_date "date"]])))
 
 (defn query-by-h2-setting
   [query]

@@ -4,15 +4,15 @@
         [ring.middleware.json :as middleware]
         [ring.util.response :only [response not-found]]
         [todo-rest-api.service]
-        [todo-rest-api.h2 :only [create-tasks-table]]
+        [todo-rest-api.database.h2 :only [create-tasks-table]]
         org.httpkit.server))
 
 (defroutes all-routes
            (GET "/ping" [] (response {:data "ok"}))
-           (POST "/tasks" req (response {:data (insert-task-by-req req)}))
-           (DELETE "/tasks/:id" [id] (response {:data (delete-task-by-id id)}))
-           (PUT "/tasks/:id" req (response {:data (update-task-by-id req)}))
-           (GET "/tasks/:id" [id] (response {:data (get-tasks-by-id id)})))
+           (POST "/tasks" req (response (insert-task-by-req req)))
+           (DELETE "/tasks/:id" [id] (response (delete-task-by-id id)))
+           (PUT "/tasks/:id" req (response (update-task-by-id req)))
+           (GET "/tasks/:id" [id] (response (get-tasks-by-id id))))
 
 (def app
   (-> all-routes

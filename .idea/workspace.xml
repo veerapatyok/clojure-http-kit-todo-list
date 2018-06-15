@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6af1fbf-d278-4c98-b713-424de3db5b70" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Leiningen__clj_time_0_14_3.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.clj" beforeDir="false" afterPath="$PROJECT_DIR$/project.clj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/todo_rest_api/core.clj" beforeDir="false" afterPath="$PROJECT_DIR$/src/todo_rest_api/core.clj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/todo_rest_api/database/h2.clj" beforeDir="false" afterPath="$PROJECT_DIR$/src/todo_rest_api/database/h2.clj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/todo_rest_api/model.clj" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/todo_rest_api/service.clj" beforeDir="false" afterPath="$PROJECT_DIR$/src/todo_rest_api/service.clj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo-rest-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/todo-rest-api.iml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,21 +15,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="core.clj" pinned="false" current-in-tab="false">
+    <leaf>
+      <file leaf-file-name="core.clj" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/todo_rest_api/core.clj">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="374">
               <caret line="22" column="29" lean-forward="true" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="service.clj" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/todo_rest_api/service.clj">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="67">
-              <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
             </state>
           </provider>
         </entry>
@@ -81,6 +67,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -104,8 +92,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -118,7 +104,7 @@
       <recent name="C:\Users\yoke-\Desktop\Project\todo-rest-api\src\todo_rest_api\database" />
     </key>
   </component>
-  <component name="ReplState" timestamp="1528651197013">{:repl-history {:local [{:command &quot;(true)&quot;, :offset 6, :ns &quot;user&quot;} {:command &quot;true&quot;, :offset 4, :ns &quot;user&quot;} {:command &quot;(try\n  (f/parse (f/formatter \&quot;dd/MM/YYYY\&quot;) \&quot;date\&quot;)\n  true\n  (catch Exception e\n    false\n    ))&quot;, :offset 95, :ns &quot;todo-rest-api.service&quot;} {:command &quot;(try\n  (f/parse (f/formatter \&quot;dd-MMM-YYYY\&quot;) \&quot;10-06-2018\&quot;)\n  true\n  (catch Exception e\n    false\n    ))&quot;, :offset 102, :ns &quot;todo-rest-api.service&quot;} {:command &quot;(try\n  (f/parse (f/formatter \&quot;dd-MM-YYYY\&quot;) \&quot;10-06-2018\&quot;)\n  true\n  (catch Exception e\n    false\n    ))&quot;, :offset 101, :ns &quot;todo-rest-api.service&quot;} {:command &quot;(c/to-long \&quot;12/12/12\&quot;)&quot;, :offset 22, :ns &quot;user&quot;} {:command &quot;(c/to-long \&quot;12-12-12\&quot;)&quot;, :offset 22, :ns &quot;user&quot;} {:command &quot;(c/to-long \&quot;12-12-2018\&quot;)&quot;, :offset 24, :ns &quot;user&quot;} {:command &quot;(c/to-long \&quot;2018-06-10\&quot;)&quot;, :offset 24, :ns &quot;user&quot;} {:command &quot;(try\n  (f/parse (f/formatter \&quot;YYYY-MM-dd\&quot;) nil)\n  true\n  (catch Exception e\n    false\n    ))&quot;, :offset 92, :ns &quot;todo-rest-api.service&quot;} {:command &quot;(try\n  (f/parse (f/formatter \&quot;YYYY-MM-dd\&quot;) nil)\n  true\n  (catch Exception e \n    false))&quot;, :offset 88, :ns &quot;todo-rest-api.service&quot;} {:command &quot;(println (f/parse (f/formatter \&quot;YYYY-MM-dd\&quot;) nil))&quot;, :offset 50, :ns &quot;todo-rest-api.service&quot;}]}}</component>
+  <component name="ReplState" timestamp="1528653337317">{:repl-history {:local [{:command &quot;(true)&quot;, :offset 6, :ns &quot;user&quot;} {:command &quot;true&quot;, :offset 4, :ns &quot;user&quot;} {:command &quot;(try\n  (f/parse (f/formatter \&quot;dd/MM/YYYY\&quot;) \&quot;date\&quot;)\n  true\n  (catch Exception e\n    false\n    ))&quot;, :offset 95, :ns &quot;todo-rest-api.service&quot;} {:command &quot;(try\n  (f/parse (f/formatter \&quot;dd-MMM-YYYY\&quot;) \&quot;10-06-2018\&quot;)\n  true\n  (catch Exception e\n    false\n    ))&quot;, :offset 102, :ns &quot;todo-rest-api.service&quot;} {:command &quot;(try\n  (f/parse (f/formatter \&quot;dd-MM-YYYY\&quot;) \&quot;10-06-2018\&quot;)\n  true\n  (catch Exception e\n    false\n    ))&quot;, :offset 101, :ns &quot;todo-rest-api.service&quot;} {:command &quot;(c/to-long \&quot;12/12/12\&quot;)&quot;, :offset 22, :ns &quot;user&quot;} {:command &quot;(c/to-long \&quot;12-12-12\&quot;)&quot;, :offset 22, :ns &quot;user&quot;} {:command &quot;(c/to-long \&quot;12-12-2018\&quot;)&quot;, :offset 24, :ns &quot;user&quot;} {:command &quot;(c/to-long \&quot;2018-06-10\&quot;)&quot;, :offset 24, :ns &quot;user&quot;} {:command &quot;(try\n  (f/parse (f/formatter \&quot;YYYY-MM-dd\&quot;) nil)\n  true\n  (catch Exception e\n    false\n    ))&quot;, :offset 92, :ns &quot;todo-rest-api.service&quot;} {:command &quot;(try\n  (f/parse (f/formatter \&quot;YYYY-MM-dd\&quot;) nil)\n  true\n  (catch Exception e \n    false))&quot;, :offset 88, :ns &quot;todo-rest-api.service&quot;} {:command &quot;(println (f/parse (f/formatter \&quot;YYYY-MM-dd\&quot;) nil))&quot;, :offset 50, :ns &quot;todo-rest-api.service&quot;}]}}</component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -246,7 +232,14 @@
       <option name="project" value="LOCAL" />
       <updated>1527953102606</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="- add basic clojure spec&#10;- validate task json format">
+      <created>1528651241554</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1528651241555</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -255,53 +248,32 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32954547" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="right" id="REPL" order="3" side_tool="true" weight="0.32980332" />
+      <window_info anchor="right" id="REPL" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32954547" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32954547" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32954547" />
       <window_info anchor="right" id="Leiningen" order="3" weight="0.32980332" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49878934" visible="true" weight="0.19591528" />
-      <window_info id="Structure" order="1" sideWeight="0.50121063" side_tool="true" weight="0.19591528" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20196672" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info id="Designer" order="2" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32954547" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19288956" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32954547" />
-      <window_info anchor="right" id="REPL" order="3" side_tool="true" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info anchor="right" id="Leiningen" order="3" weight="0.32980332" />
-      <window_info id="UI Designer" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32954547" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info id="Favorites" order="2" side_tool="true" />
     </layout>
   </component>
   <component name="UnknownFeatures">
@@ -338,9 +310,39 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="edit gitignore&#10;- add .idea folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit gitignore&#10;- add .idea folder" />
+    <MESSAGE value="- add basic clojure spec&#10;- validate task json format" />
+    <option name="LAST_COMMIT_MESSAGE" value="- add basic clojure spec&#10;- validate task json format" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/todo_rest_api/core.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/todo_rest_api/service.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/todo_rest_api/core.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/todo_rest_api/service.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/todo_rest_api/core.clj">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -355,13 +357,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/todo_rest_api/model.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/todo_rest_api/model.clj" />
     <entry file="file://$PROJECT_DIR$/src/todo_rest_api/core.clj">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1292">
@@ -446,10 +442,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
           <caret line="1230" column="28" selection-start-line="1230" selection-start-column="16" selection-end-line="1230" selection-end-column="28" />
-          <folding>
-            <element signature="e#11865#11866#0" expanded="true" />
-            <element signature="e#11915#11916#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -460,13 +452,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/todo_rest_api/model.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/todo_rest_api/model.clj" />
     <entry file="file://$PROJECT_DIR$/src/todo_rest_api/database/h2.clj">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-139">
@@ -554,45 +540,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/ring/ring-core/1.7.0-RC1/ring-core-1.7.0-RC1.jar!/ring/util/response.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="62" column="6" selection-start-line="62" selection-start-column="6" selection-end-line="62" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_112/src.zip!/java/time/Instant.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
           <caret line="1230" column="28" selection-start-line="1230" selection-start-column="16" selection-end-line="1230" selection-end-column="28" />
-          <folding>
-            <element signature="e#11865#11866#0" expanded="true" />
-            <element signature="e#11915#11916#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/todo_rest_api/model.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="48" lean-forward="true" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/todo_rest_api/model.clj" />
     <entry file="jar://$MAVEN_REPOSITORY$/clj-time/clj-time/0.14.4/clj-time-0.14.4.jar!/clj_time/format.clj">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="129">
@@ -628,17 +583,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/todo_rest_api/core.clj">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="29" lean-forward="true" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+        <state relative-caret-position="34">
+          <caret line="2" column="34" lean-forward="true" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="38" lean-forward="true" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/ring/ring-core/1.7.0-RC1/ring-core-1.7.0-RC1.jar!/ring/util/response.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="65" column="8" lean-forward="true" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/todo_rest_api/service.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+        <state relative-caret-position="458">
+          <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/todo_rest_api/core.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="29" lean-forward="true" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
         </state>
       </provider>
     </entry>

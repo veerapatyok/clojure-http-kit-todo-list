@@ -1,6 +1,7 @@
 (ns todo-rest-api.service
   (:gen-class)
-  (:use [todo-rest-api.database.h2])
+  (:use [todo-rest-api.database.h2]
+        [ring.util.response :only [response not-found bad-request]])
   (:require [clojure.spec.alpha :as s]
             [clj-time [format :as f]]))
 
@@ -24,11 +25,11 @@
 
 (defn get-tasks-by-id
   [id]
-  (if (empty? (query-by-h2-setting (str "select * from task where id=" "'" id "'")))
-    {:errors ["not found"]}
+  (let [res (query-by-h2-setting (str "select * from task where id=" "'" id "'"))]
+    (if (empty? res)
+      (not-found {:errors ["not found"]})
 
-    {:data (-> (query-by-h2-setting (str "select * from task where id=" "'" id "'"))
-               (first))}))
+      (response {:data (first res)}))))
 
 (defn insert-task-by-req
   [req]
@@ -46,19 +47,19 @@
     (cond
       (empty? errors) (second [(execute-by-h2-setting
                                  (str "insert into task(id, name, status, task_date) values(" "'" id "'" "," "'" task-name "'" "," "'" status "'" "," "'" date "'" ")"))
-                               {:data {:id        id
-                                       :name      task-name
-                                       :status    status
-                                       :task_date date}}])
-      :else {:errors errors})))
+                               (response {:data {:id        id
+                                                 :name      task-name
+                                                 :status    status
+                                                 :task_date date}})])
+      :else (bad-request {:errors errors}))))
 
 (defn delete-task-by-id
   [id]
   (if (> (first (execute-by-h2-setting (str "delete from task where id=" "'" id "'"))) 0)
     (second [(execute-by-h2-setting (str "delete from task where id=" "'" id "'"))
-             {:data {:id id}}])
+             (response {:data {:id id}})])
 
-    {:errors ["not found"]}))
+    (not-found {:errors ["not found"]})))
 
 (defn update-task-by-id
   [req]
@@ -76,11 +77,11 @@
     (cond
       (empty? errors) (if (> (first (execute-by-h2-setting
                                       (str "update task set name=" "'" task-name "'" "," "status=" "'" status "'" "," "task_date=" "'" date "'" "where id=" "'" id "'"))) 0)
-                        {:data {:id        id
-                                :name      task-name
-                                :status    status
-                                :task_date date}}
+                        (response {:data {:id        id
+                                          :name      task-name
+                                          :status    status
+                                          :task_date date}})
 
-                        {:errors ["not found"]})
+                        (not-found {:errors ["not found"]}))
 
-      :else {:errors errors})))
+      :else (bad-request {:errors errors}))))

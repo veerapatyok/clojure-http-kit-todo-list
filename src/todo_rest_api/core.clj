@@ -9,10 +9,10 @@
 
 (defroutes all-routes
            (GET "/ping" [] (response {:data "ok"}))
-           (POST "/tasks" req (response (insert-task-by-req req)))
-           (DELETE "/tasks/:id" [id] (response (delete-task-by-id id)))
-           (PUT "/tasks/:id" req (response (update-task-by-id req)))
-           (GET "/tasks/:id" [id] (response (get-tasks-by-id id))))
+           (POST "/tasks" req (insert-task-by-req req))
+           (DELETE "/tasks/:id" [id] (delete-task-by-id id))
+           (PUT "/tasks/:id" req (update-task-by-id req))
+           (GET "/tasks/:id" [id] (get-tasks-by-id id)))
 
 (def app
   (-> all-routes

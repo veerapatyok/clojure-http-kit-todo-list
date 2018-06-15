@@ -1,34 +1,8 @@
 (ns todo-rest-api.service
   (:gen-class)
   (:use [todo-rest-api.database.h2]
-        [ring.util.response :only [response not-found bad-request]])
-  (:require [clojure.spec.alpha :as s]
-            [clj-time [format :as f]]))
-
-(defn uuid [] (str (java.util.UUID/randomUUID)))
-
-(def all-status
-  ["success", "failure"])
-
-(defn status?
-  [status]
-  (s/valid? (fn [x] (some #(= % x) all-status)) status))
-
-(defn date-format?
-  [date]
-  (let [date? #(try (f/parse (f/formatter "YYYY-MM-dd") %) true (catch Exception e false))]
-    (s/valid? date? date)))
-
-(defn validate-data
-  [valid? error]
-  (if valid? "" error))
-
-(defn validate-task-json
-  [date task-name status]
-  (filter #(not-empty %)
-          [(validate-data (s/valid? date-format? date) "invalid date")
-           (validate-data (s/valid? (complement nil?) task-name) "invalid task-name")
-           (validate-data (s/valid? status? status) "invalid status")]))
+        [ring.util.response :only [response not-found bad-request]]
+        [todo-rest-api.json.task :only [validate-task-json uuid]]))
 
 (defn get-tasks-by-id
   [id]

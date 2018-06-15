@@ -21,7 +21,14 @@
 
 (defn validate-data
   [valid? error]
-  (if valid? true error))
+  (if valid? "" error))
+
+(defn validate-task-json
+  [date task-name status]
+  (filter #(not-empty %)
+          [(validate-data (s/valid? date-format? date) "invalid date")
+           (validate-data (s/valid? (complement nil?) task-name) "invalid task-name")
+           (validate-data (s/valid? status? status) "invalid status")]))
 
 (defn get-tasks-by-id
   [id]
@@ -37,12 +44,7 @@
         date (get-in req [:body :date])
         task-name (get-in req [:body :name])
         status (get-in req [:body :status])
-        errors (reduce
-                 #(if (true? %2) %1 (cons %2 %1))
-                 []
-                 [(validate-data (s/valid? date-format? date) "invalid date")
-                  (validate-data (s/valid? (complement nil?) task-name) "invalid task-name")
-                  (validate-data (s/valid? status? status) "invalid status")])]
+        errors (validate-task-json date task-name status)]
 
     (cond
       (empty? errors) (second [(execute-by-h2-setting
@@ -67,12 +69,7 @@
         date (get-in req [:body :date])
         task-name (get-in req [:body :name])
         status (get-in req [:body :status])
-        errors (reduce
-                 #(if (true? %2) %1 (cons %2 %1))
-                 []
-                 [(validate-data (s/valid? date-format? date) "invalid date")
-                  (validate-data (s/valid? (complement nil?) task-name) "invalid task-name")
-                  (validate-data (s/valid? status? status) "invalid status")])]
+        errors (validate-task-json date task-name status)]
 
     (cond
       (empty? errors) (if (> (first (execute-by-h2-setting

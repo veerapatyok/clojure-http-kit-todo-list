@@ -19,5 +19,6 @@
       (middleware/wrap-json-body {:keywords? true :bigdecimals? true})
       (middleware/wrap-json-response)))
 
-(create-tasks-table)
-(run-server app {:port 8080})
+(defn -main [& args]
+  (create-tasks-table)
+  (run-server app {:port 8080}))

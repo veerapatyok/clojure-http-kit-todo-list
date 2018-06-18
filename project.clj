@@ -10,4 +10,7 @@
                  [compojure "1.6.1"]
                  [org.clojure/java.jdbc "0.7.6"]
                  [com.h2database/h2 "1.4.197"]
-                 [clj-time "0.14.4"]])
+                 [clj-time "0.14.4"]]
+
+  :aot  [todo-rest-api.core]
+  :main todo-rest-api.core)

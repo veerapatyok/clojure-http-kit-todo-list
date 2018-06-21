@@ -9,6 +9,7 @@
                  [ring/ring-json "0.4.0"]
                  [compojure "1.6.1"]
                  [org.clojure/java.jdbc "0.7.6"]
+                 [com.layerware/hugsql "0.4.9"]
                  [com.h2database/h2 "1.4.197"]
                  [clj-time "0.14.4"]]
 

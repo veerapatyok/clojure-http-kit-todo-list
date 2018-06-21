@@ -4,7 +4,8 @@
         [ring.middleware.json :as middleware]
         [ring.util.response :only [response not-found]]
         [todo-rest-api.service]
-        [todo-rest-api.database.h2 :only [create-tasks-table]]
+        [todo-rest-api.database.h2 :only [create-tasks-table h2-setting]]
+        [todo-rest-api.database.hugsql-h2 :as task-sql]
         org.httpkit.server))
 
 (defroutes all-routes
@@ -20,5 +21,5 @@
       (middleware/wrap-json-response)))
 
 (defn -main [& args]
-  (create-tasks-table)
+  (task-sql/create-task-table h2-setting)
   (run-server app {:port 8080}))

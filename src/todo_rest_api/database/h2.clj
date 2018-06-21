@@ -8,8 +8,7 @@
    :subprotocol "h2:mem"
    :subname     "demo;DB_CLOSE_DELAY=-1"
    :user        ""
-   :password    ""
-   })
+   :password    ""})
 
 (defn create-tasks-table
   []

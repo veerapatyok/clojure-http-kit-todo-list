@@ -32,8 +32,7 @@
 (defn delete-task-by-id
   [id]
   (if (> (first (execute-by-h2-setting (str "delete from task where id=" "'" id "'"))) 0)
-    (second [(execute-by-h2-setting (str "delete from task where id=" "'" id "'"))
-             (response {:data {:id id}})])
+    (response {:data {:id id}})
 
     (not-found {:errors ["not found"]})))
 
